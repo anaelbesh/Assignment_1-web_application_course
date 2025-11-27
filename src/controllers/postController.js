@@ -10,6 +10,20 @@ const getAllPosts = async (req, res) => {
     }
 }
 
+// add a new post
+const addNewPost = async (req, res) => {
+    const { sender, title, content } = req.body;
+    const newPost = new postModal({ sender, title, content });
+    try {
+        const savedPost = await newPost.save();
+        res.status(201).json(savedPost);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+}
+
 module.exports = {
     getAllPosts,
+    addNewPost,
 };
+
