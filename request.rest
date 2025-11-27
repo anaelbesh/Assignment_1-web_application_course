@@ -1,3 +1,15 @@
  ###
  // get all posts
  GET http://localhost:3000/posts/
+
+###
+// add a new post
+POST http://localhost:3000/posts/
+Content-Type: application/json
+
+{
+  "sender": "John",
+  "title": "My Post",
+  "content": "Hello"
+}
+
