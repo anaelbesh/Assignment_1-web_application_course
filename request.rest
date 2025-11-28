@@ -13,3 +13,7 @@ Content-Type: application/json
   "content": "Hello"
 }
 
+###
+ // get a specific post by ID
+ GET http://localhost:3000/posts/69284910476d1b4b94e1d2c6
+
