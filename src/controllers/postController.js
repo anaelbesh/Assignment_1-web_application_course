@@ -1,9 +1,11 @@
 const postModal = require('../models/postModel');
 
-//get all posts
+//get all posts OR get posts by sender
 const getAllPosts = async (req, res) => {
     try {
-        const posts = await postModal.find();
+        const { sender } = req.query;
+        const filter = sender ? { sender } : {};
+        const posts = await postModal.find(filter);
         res.status(200).json(posts);
     } catch (error) {
         res.status(500).json({ message: error.message });

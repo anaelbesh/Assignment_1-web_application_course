@@ -14,6 +14,10 @@ Content-Type: application/json
 }
 
 ###
+// get posts by sender
+GET http://localhost:3000/posts?sender=John
+
+###
  // get a specific post by ID
  GET http://localhost:3000/posts/69284910476d1b4b94e1d2c6
 
