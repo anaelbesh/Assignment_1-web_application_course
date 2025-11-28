@@ -37,9 +37,25 @@ const addNewPost = async (req, res) => {
     }
 }
 
+// update a post by ID
+const updatePostById = async (req, res) => {
+    const id = req.params.id;
+    const updateData = req.body;
+    try {
+        const updatedPost = await postModal.findByIdAndUpdate(id, updateData, { new: true, runValidators: true });
+        if (!updatedPost) {
+            return res.status(404).json({ message: 'Post not found' });
+        }
+        res.status(200).json(updatedPost);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
+
 module.exports = {
     getAllPosts,
     getPostById,
     addNewPost,
+    updatePostById,
 };
 
