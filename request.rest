@@ -19,14 +19,26 @@ GET http://localhost:3000/posts?sender=John
 
 ###
 // get a specific post by ID
-GET http://localhost:3000/posts/69284910476d1b4b94e1d2c6
+GET http://localhost:3000/posts/692aaf5e94cee70cd74c7a85
 
 ###
 // update a specific post by ID
-PUT http://localhost:3000/posts/69284910476d1b4b94e1d2c6
+PUT http://localhost:3000/posts/692aaf5e94cee70cd74c7a85
 Content-Type: application/json
 
 {
   "title": "Updated Post Title",
   "content": "Updated content of the post."
+}
+
+
+// comments
+###
+// add a comment to a specific post
+POST http://localhost:3000/comments/692aaf5e94cee70cd74c7a85
+Content-Type: application/json
+
+{
+  "sender": "Alice",
+  "content": "Great post!"
 }

@@ -10,6 +10,7 @@ db.once('open', () => console.log('Connected to Database'));
 
 app.use(express.json());
 app.use('/posts', require('./src/routes/postRoutes'));
+app.use('/comments', require('./src/routes/commentRoute'));
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
