@@ -45,6 +45,10 @@ Content-Type: application/json
 }
 
 ###
+// get a specific comment by ID
+GET http://localhost:3000/comments/692aafbe94cee70cd74c7a9b
+
+###
 // delete a specific comment by ID
 DELETE http://localhost:3000/comments/692ab18cef0fe489f67e1533
 
