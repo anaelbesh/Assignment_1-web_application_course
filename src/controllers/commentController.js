@@ -20,6 +20,21 @@ const createComment = async (req, res) => {
     }   
 }
 
+//delet a comment by ID
+const deleteCommentById = async (req, res) => {
+    const commentId = req.params.id;
+    try {
+        const deletedComment = await commentModal.findByIdAndDelete(commentId);
+        if (!deletedComment) {
+            return res.status(404).json({ message: 'Comment not found' });
+        }
+        res.status(200).json({ message: 'Comment deleted successfully' });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
+
 module.exports = {
     createComment,
+    deleteCommentById
 };

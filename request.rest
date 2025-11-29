@@ -1,3 +1,4 @@
+// posts:
 ###
 // get all posts
 GET http://localhost:3000/posts
@@ -32,7 +33,7 @@ Content-Type: application/json
 }
 
 
-// comments
+// comments:
 ###
 // add a comment to a specific post
 POST http://localhost:3000/comments/692aaf5e94cee70cd74c7a85
@@ -42,3 +43,7 @@ Content-Type: application/json
   "sender": "Alice",
   "content": "Great post!"
 }
+
+###
+// delete a specific comment by ID
+DELETE http://localhost:3000/comments/692ab18cef0fe489f67e1533
