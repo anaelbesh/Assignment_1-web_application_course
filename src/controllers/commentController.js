@@ -20,6 +20,20 @@ const createComment = async (req, res) => {
     }   
 }
 
+// get a comment by ID
+const getCommentById = async (req, res) => {
+    const commentId = req.params.id;
+    try {
+        const comment = await commentModal.findById(commentId);
+        if (!comment) {
+            return res.status(404).json({ message: 'Comment not found' });
+        }
+        res.status(200).json(comment);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
+
 //delet a comment by ID
 const deleteCommentById = async (req, res) => {
     const commentId = req.params.id;
@@ -55,6 +69,7 @@ const updateCommentById = async (req, res) => {
 
 module.exports = {
     createComment,
+    getCommentById,
     deleteCommentById,
     updateCommentById
 };
