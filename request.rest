@@ -60,3 +60,7 @@ Content-Type: application/json
 {
   "content": "Updated comment content."
 }
+
+###
+// get all comments, filtered by postId
+GET http://localhost:3000/comments?postId=692aaf5e94cee70cd74c7a85

@@ -67,9 +67,22 @@ const updateCommentById = async (req, res) => {
     }   
 }
 
+// get all comments (by postId)
+const getAllComments = async (req, res) => {
+    const { postId } = req.query;
+    const filter = postId ? { postId } : {};
+    try {
+        const comments = await commentModal.find(filter);
+        res.status(200).json(comments);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
+
 module.exports = {
     createComment,
     getCommentById,
     deleteCommentById,
-    updateCommentById
+    updateCommentById,
+    getAllComments
 };
