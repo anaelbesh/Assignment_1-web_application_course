@@ -1,10 +1,10 @@
- ###
- // get all posts
- GET http://localhost:3000/posts/
+###
+// get all posts
+GET http://localhost:3000/posts
 
 ###
 // add a new post
-POST http://localhost:3000/posts/
+POST http://localhost:3000/posts
 Content-Type: application/json
 
 {
@@ -18,6 +18,15 @@ Content-Type: application/json
 GET http://localhost:3000/posts?sender=John
 
 ###
- // get a specific post by ID
- GET http://localhost:3000/posts/69284910476d1b4b94e1d2c6
+// get a specific post by ID
+GET http://localhost:3000/posts/69284910476d1b4b94e1d2c6
 
+###
+// update a specific post by ID
+PUT http://localhost:3000/posts/69284910476d1b4b94e1d2c6
+Content-Type: application/json
+
+{
+  "title": "Updated Post Title",
+  "content": "Updated content of the post."
+}
