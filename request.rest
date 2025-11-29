@@ -1,42 +1,118 @@
+
 // posts:
+
+//-----------------------------------------
 ###
 // get all posts
 GET http://localhost:3000/posts
 
+
+//-----------------------------------------
 ###
 // add a new post
+// post #1:
 POST http://localhost:3000/posts
 Content-Type: application/json
 
 {
   "sender": "John",
-  "title": "My Post",
+  "title": "Post #1",
   "content": "Hello"
 }
 
 ###
-// get posts by sender
-GET http://localhost:3000/posts?sender=John
-
-###
-// get a specific post by ID
-GET http://localhost:3000/posts/692aaf5e94cee70cd74c7a85
-
-###
-// update a specific post by ID
-PUT http://localhost:3000/posts/692aaf5e94cee70cd74c7a85
+// post #2:
+POST http://localhost:3000/posts
 Content-Type: application/json
 
 {
-  "title": "Updated Post Title",
-  "content": "Updated content of the post."
+  "sender": "Jane",
+  "title": "Post #2",
+  "content": "Hi there!"
 }
+
+###
+// post #3:
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+  "sender": "Jim",
+  "title": "Post #3",
+  "content": "Good morning!"
+}
+//-----------------------------------------
+
+
+###
+// get posts by sender
+// filter by sender=John
+GET http://localhost:3000/posts?sender=John
+
+###
+// filter by sender=Jane
+GET http://localhost:3000/posts?sender=Jane
+
+###
+// filter by sender=Jim
+GET http://localhost:3000/posts?sender=Jim
+//-----------------------------------------
+
+
+###
+// get a specific post by ID
+// post #1
+GET http://localhost:3000/posts/692ace0bfeac002eccb388b8
+
+###
+// post #2
+GET http://localhost:3000/posts/692ace0dfeac002eccb388ba
+
+###
+// post #3
+GET http://localhost:3000/posts/692ace0ffeac002eccb388bc
+//-----------------------------------------
+
+
+###
+// update a specific post by ID
+// post #1
+PUT http://localhost:3000/posts/692ace0bfeac002eccb388b8
+Content-Type: application/json
+
+{
+  "title": "Updated - post #1",
+  "content": "Updated - Hello world!"
+}
+
+###
+// post #2
+PUT http://localhost:3000/posts/692ace0dfeac002eccb388ba
+Content-Type: application/json
+
+{
+  "title": "Updated - post #2",
+  "content": "Updated - Hi everyone!"
+}
+
+###
+// post #3
+PUT http://localhost:3000/posts/692ace0ffeac002eccb388bc
+Content-Type: application/json
+
+{
+  "title": "Updated - post #3",
+  "content": "Updated - Good day!"
+}
+//--------------------------------------------------------------------------------------------------------------
 
 
 // comments:
+
 ###
 // add a comment to a specific post
-POST http://localhost:3000/comments/692aaf5e94cee70cd74c7a85
+ // comment to post #1
+POST http://localhost:3000/comments/692ace0bfeac002eccb388b8
 Content-Type: application/json
 
 {
@@ -45,22 +121,66 @@ Content-Type: application/json
 }
 
 ###
-// get a specific comment by ID
-GET http://localhost:3000/comments/692aafbe94cee70cd74c7a9b
-
-###
-// delete a specific comment by ID
-DELETE http://localhost:3000/comments/692ab18cef0fe489f67e1533
-
-###
-// update a specific comment by ID
-PUT http://localhost:3000/comments/692aafb494cee70cd74c7a97
+// comment to post #2
+POST http://localhost:3000/comments/692ace0dfeac002eccb388ba
 Content-Type: application/json
 
 {
-  "content": "Updated comment content."
+  "sender": "Bob",
+  "content": "Thanks for sharing."
 }
 
 ###
+// another comment to post #2
+POST http://localhost:3000/comments/692ace0dfeac002eccb388ba
+Content-Type: application/json
+
+{
+  "sender": "Charlie",
+  "content": "Interesting read!"
+}
+//-----------------------------------------
+
+
+###
+// get a specific comment by ID
+// post #1 comment
+GET http://localhost:3000/comments/692ace8bfeac002eccb388ca
+
+###
+// post #2 first comment
+GET http://localhost:3000/comments/692ace8ffeac002eccb388ce
+//-----------------------------------------
+
+
+###
+// delete a specific comment by ID
+// post #2 first comment
+DELETE http://localhost:3000/comments/692ace8ffeac002eccb388ce
+//-----------------------------------------
+
+
+###
+// update a specific comment by ID
+// post #1 comment
+PUT http://localhost:3000/comments/692ace8bfeac002eccb388ca
+Content-Type: application/json
+
+{
+  "content": "Updated - post #1 comment - Great!"
+}
+//-----------------------------------------
+
+
+###
 // get all comments, filtered by postId
-GET http://localhost:3000/comments?postId=692aaf5e94cee70cd74c7a85
+// comments for post #1
+GET http://localhost:3000/comments?postId=692ace0bfeac002eccb388b8
+
+###
+//  comments for post #2
+GET http://localhost:3000/comments?postId=692ace0dfeac002eccb388ba
+###
+// comments for post #3
+GET http://localhost:3000/comments?postId=692ace0ffeac002eccb388bc
+//-----------------------------------------
