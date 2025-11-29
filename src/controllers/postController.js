@@ -15,7 +15,7 @@ const getAllPosts = async (req, res) => {
 // get a post by ID
 const getPostById = async (req, res) => {
     try {
-        const post = await postModal.findById(req.params.id);
+        const post = await postModal.findById(req.params.id).populate('comments');
         if (!post) {
             return res.status(404).json({ message: 'Post not found' });
         }
