@@ -34,7 +34,27 @@ const deleteCommentById = async (req, res) => {
     }
 }
 
+// update a comment by ID
+const updateCommentById = async (req, res) => {
+    const commentId = req.params.id;
+    const { content } = req.body;
+    try {
+        const updatedComment = await commentModal.findByIdAndUpdate(
+            commentId,
+            { content },
+            { new: true }
+        );
+        if (!updatedComment) {
+            return res.status(404).json({ message: 'Comment not found' });
+        }
+        res.status(200).json(updatedComment);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }   
+}
+
 module.exports = {
     createComment,
-    deleteCommentById
+    deleteCommentById,
+    updateCommentById
 };

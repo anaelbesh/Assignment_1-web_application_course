@@ -47,3 +47,12 @@ Content-Type: application/json
 ###
 // delete a specific comment by ID
 DELETE http://localhost:3000/comments/692ab18cef0fe489f67e1533
+
+###
+// update a specific comment by ID
+PUT http://localhost:3000/comments/692aafb494cee70cd74c7a97
+Content-Type: application/json
+
+{
+  "content": "Updated comment content."
+}
